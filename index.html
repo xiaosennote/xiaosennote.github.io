@@ -83,11 +83,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。<br>Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promise对象，会让程序进入异步执行模式。假如，有一段对外部数据请求的程序，第一部分是对外部数据的请求，第二部分是对返回数据的处理，那么，在第一部分被执行时，它其实是不需要JS引擎处理的，所以它就会把JS引擎的执行权交给正在排队等待执行的程序，这就是我们所说的异步执行模式，那第二部分怎么办呢，这就是Promise要做的工作了，当第一部分等待外部数据返回时，Promise承诺会在外部数据返回成功后，执行第二部分的程序（不一定是立即）。Promise就是JS的异步操作。</p>
+<h2 id="Promise接口"><a href="#Promise接口" class="headerlink" title="Promise接口"></a>Promise接口</h2><p>Promise对象只有三种状态。</p>
+<p>异步操作“未完成”（pending）<br>异步操作“已完成”（resolved，又称fulfilled）<br>异步操作“失败”（rejected）</p>
+<p>Promise使用then方法添加回调函数。then方法可以接受两个回调函数，第一个是异步操作成功时（变为resolved状态）时的回调函数，第二个是异步操作失败（变为rejected）时的回调函数（可以省略）。一旦状态改变，就调用相应的回调函数。<br>then方法可以链式使用。Promises对象的错误有传递性。<br>    promise<br>        .then(step1)<br>        .then(step2)<br>        .then(step3)<br>        .then(<br>            console.log,<br>            console.error<br>        );</p>
+<pre><code>var promise = new Promise(function(resolve, reject) {
+    // 异步操作的代码
+    if (/* 异步操作成功 */){
+        resolve(value);
+    } else {
+        reject(error);
+    }
+});
+</code></pre><h2 id="Promise对象Ajax操作"><a href="#Promise对象Ajax操作" class="headerlink" title="Promise对象Ajax操作"></a>Promise对象Ajax操作</h2><pre><code>function search(term) {
+    var url = &apos;http://example.com/search?q=&apos; + term;
+    var xhr = new XMLHttpRequest();
+    var result;
+
+    var p = new Promise(function (resolve, reject) {
+    xhr.open(&apos;GET&apos;, url, true);
+    xhr.onload = function (e) {
+        if (this.status === 200) {
+            result = JSON.parse(this.responseText);
+            resolve(result);
+        }
+    };
+    xhr.onerror = function (e) {
+        reject(e);
+    };
+    xhr.send();
+    });
+return p;
+}
+search(&quot;Hello World&quot;).then(console.log, console.error);
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3ixi24900057cm73useh0nj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3j07dmu0004w0m7dc6fj1cp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3ixi24900047cm74bygtfwq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3j07dmt0003w0m7m0yjmqsg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -179,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3ixi24900007cm7cl4dl9sn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3j07dmm0000w0m7ile9kel9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -240,7 +273,7 @@ v instanceof Vehicle // true
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3ixi24900017cm7yf7m1d0h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3j07dms0002w0m7s1gx38po" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +351,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3ixi24900027cm70fwt8mhm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3j07dmq0001w0m75u9v08ev" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +402,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3ixi24900037cm7kr32vmbp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3j07dmv0005w0m768kjj9bd" class="article-share-link">Share</a>
       
       
     </footer>
