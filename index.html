@@ -61,6 +61,119 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/05/Ajax/" class="article-date">
+  <time datetime="2017-06-05T03:38:07.000Z" itemprop="datePublished">2017-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/Ajax/">Ajax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><p>Ajax用于浏览器与服务器之间的通讯，通过原生的XMLHttpRequest发出HTTP请求，得到服务器返回的数据后，再进行处理。<br>注意：Ajax只能向同源网址发出请求。<br>包含4个步骤：</p>
+<ol>
+<li>创建Ajax对象</li>
+<li>发出HTTP请求</li>
+<li>接收服务器返回的数据</li>
+<li>更新网页数据</li>
+</ol>
+<h2 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h2><pre><code>var ajax = new XMLHttpRequest();
+ajax.open(&apos;方法&apos;，&apos;url&apos;,&apos;是否异步&apos;)；
+ajax.send();
+</code></pre><h3 id="XMLHttpRequest属性"><a href="#XMLHttpRequest属性" class="headerlink" title="XMLHttpRequest属性"></a>XMLHttpRequest属性</h3><ul>
+<li><p>readyState<br>只读属性，用整数表示XMLHttpRequest请求当前状态。</p>
+<ol>
+<li>对应常量UNSENT，表示XMLHttpRequest实例已经生成，但是open()方法还没有被调用。</li>
+<li>对应常量OPENED，表示send()方法还没有被调用，仍然可以使用setRequestHeader()，设定HTTP请求的头信息。</li>
+<li>对应常量HEADERS_RECEIVED，表示send()方法已经执行，并且头信息和状态码已经收到。</li>
+<li>对应常量LOADING，表示正在接收服务器传来的body部分的数据，如果responseType属性是text或者空字符串，responseText就会包含已经收到的部分信息。</li>
+<li>对应常量DONE，表示服务器数据已经完全接收，或者本次接收已经失败了。</li>
+</ol>
+</li>
+<li><p>onreadystatechange<br>指向一个回调函数，当readystatechange事件发生的时候，回调函数就会被调用。</p>
+</li>
+<li><p>response<br>只读属性，返回接收到的数据体</p>
+</li>
+<li><p>reponseType<br>指定服务器返回的数据类型</p>
+<p>  ”“：字符串（默认值）</p>
+<p>  “arraybuffer”：ArrayBuffer对象</p>
+<p>  “blob”：Blob对象</p>
+<p>  “document”：Document对象</p>
+<p>  “json”：JSON对象</p>
+<p>  “text”：字符串</p>
+</li>
+<li><p>responseText<br>只读属性，返回从服务器接收到的字符串</p>
+</li>
+<li><p>status<br>只读属性，表示本次请求得到的HTTP状态码。</p>
+<p>  200, OK，访问正常</p>
+<p>  301, Moved Permanently，永久移动</p>
+<p>  302, Move temporarily，暂时移动</p>
+<p>  304, Not Modified，未修改</p>
+<p>  307, Temporary Redirect，暂时重定向</p>
+<p>  401, Unauthorized，未授权</p>
+<p>  403, Forbidden，禁止访问</p>
+<p>  404, Not Found，未发现指定网址</p>
+<p>  500, Internal Server Error，服务器发生错误</p>
+</li>
+<li><p>statusText<br>只读属性，返回一个字符串，表示服务器发送的状态提示，包含整个状态信息。</p>
+</li>
+<li><p>timeout<br>表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。</p>
+</li>
+<li><p>事件监听接口<br>事件指定回调函数</p>
+<p>  onloadstart 请求发出</p>
+<p>  onprogress 正在发送和加载数据</p>
+<p>  onabort 请求被中止，比如用户调用了abort()方法</p>
+<p>  onerror 请求失败</p>
+<p>  onload 请求成功完成</p>
+<p>  ontimeout 用户指定的时限到期，请求还未完成</p>
+<p>  onloadend 请求完成，不管成果或失败</p>
+</li>
+</ul>
+<h3 id="XMLHttpRequest方法"><a href="#XMLHttpRequest方法" class="headerlink" title="XMLHttpRequest方法"></a>XMLHttpRequest方法</h3><ul>
+<li><p>abort()<br>用于终止已经发出的HTTP请求</p>
+</li>
+<li><p>getAllReaponseHeaders()<br>返回服务器发来的所有HTTP头信息</p>
+</li>
+<li><p>getReaponseHeader()<br>返回HTTP指定字段头信息的值<br>  getResponseHeader(“”)</p>
+</li>
+<li><p>open()<br>用于指定发送HTTP请求的参数<br>open(<br>  string method,<br>  string url,<br>  optional boolean async,<br>  optional string user,<br>  optional string password<br>  );<br>method：表示HTTP动词，比如“GET”、“POST”、“PUT”和“DELETE”。<br>url: 表示请求发送的网址。<br>async: 格式为布尔值，默认为true，表示请求是否为异步。如果设为false，则send()方法只有等到收到服务器返回的结果，才会有返回值。<br>user：表示用于认证的用户名，默认为空字符串。<br>password：表示用于认证的密码，默认为空字符串。  </p>
+</li>
+</ul>
+<p>如果已经使用过open()方法，再次使用等同于调用abort()。</p>
+<ul>
+<li><p>send()<br>用于实际发出HTTP请求</p>
+</li>
+<li><p>setRequestHeader()<br>用于设置HTTP头信息。该方法必须在open()之后、send()之前调用。</p>
+</li>
+</ul>
+<h3 id="XMLHttpRequest事件"><a href="#XMLHttpRequest事件" class="headerlink" title="XMLHttpRequest事件"></a>XMLHttpRequest事件</h3><p>xhr.addEventListener(“progress”, updateProgress);<br>xhr.addEventListener(“load”, transferComplete);<br>xhr.addEventListener(“error”, transferFailed);<br>xhr.addEventListener(“abort”, transferCanceled);</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/05/Ajax/" data-id="cj3keyop00000u0m7gzqv800o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Promise" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/05/Promise/" class="article-date">
@@ -120,7 +233,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3j07dmu0004w0m7dc6fj1cp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3keyoq40006u0m72r0ozohu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +278,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3j07dmt0003w0m7m0yjmqsg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3keyopc0003u0m7l3p8p8yq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +325,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3j07dmm0000w0m7ile9kel9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3keyopb0002u0m7fmw0p5j2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -273,7 +386,7 @@ v instanceof Vehicle // true
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3j07dms0002w0m7s1gx38po" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3keyopl0004u0m7lckjbbtm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -316,7 +429,7 @@ v instanceof Vehicle // true
 <li>2</li>
 <li>3</li>
 </ul>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>以“数字.”开头</p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>以“数字. ”开头</p>
 <ol>
 <li>1</li>
 <li>2</li>
@@ -351,7 +464,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3j07dmq0001w0m75u9v08ev" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3keyopa0001u0m7ifmpv7tc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -402,7 +515,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3j07dmv0005w0m768kjj9bd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3keyoq30005u0m7r3uoiybv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -442,6 +555,10 @@ return arr;
       <ul>
         
           <li>
+            <a href="/2017/06/05/Ajax/">Ajax</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/05/Promise/">Promise</a>
           </li>
         
@@ -455,10 +572,6 @@ return arr;
         
           <li>
             <a href="/2017/05/12/JavaScript面向对象编程/">JavaScript面向对象编程</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/07/Markdown语法/">Markdown语法</a>
           </li>
         
       </ul>
