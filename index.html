@@ -61,6 +61,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/07/正则表达式/" class="article-date">
+  <time datetime="2017-06-07T14:47:35.000Z" itemprop="datePublished">2017-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/07/正则表达式/">正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/07/正则表达式/" data-id="cj3n6jojf00058wm7xwq1nswr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/05/Ajax/" class="article-date">
@@ -83,7 +119,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><p>Ajax用于浏览器与服务器之间的通讯，通过原生的XMLHttpRequest发出HTTP请求，得到服务器返回的数据后，再进行处理。<br>注意：Ajax只能向同源网址发出请求。<br>包含4个步骤：</p>
+        <p>Ajax用于浏览器与服务器之间的通讯，通过原生的XMLHttpRequest发出HTTP请求，得到服务器返回的数据后，再进行处理。<br>注意：Ajax只能向同源网址发出请求。<br>包含4个步骤：</p>
 <ol>
 <li>创建Ajax对象</li>
 <li>发出HTTP请求</li>
@@ -164,7 +200,7 @@ ajax.send();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Ajax/" data-id="cj3keyop00000u0m7gzqv800o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Ajax/" data-id="cj3n6joj600008wm7sreatf2u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -196,7 +232,7 @@ ajax.send();
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。<br>Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promise对象，会让程序进入异步执行模式。假如，有一段对外部数据请求的程序，第一部分是对外部数据的请求，第二部分是对返回数据的处理，那么，在第一部分被执行时，它其实是不需要JS引擎处理的，所以它就会把JS引擎的执行权交给正在排队等待执行的程序，这就是我们所说的异步执行模式，那第二部分怎么办呢，这就是Promise要做的工作了，当第一部分等待外部数据返回时，Promise承诺会在外部数据返回成功后，执行第二部分的程序（不一定是立即）。Promise就是JS的异步操作。</p>
+        <p>由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。<br>Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promise对象，会让程序进入异步执行模式。假如，有一段对外部数据请求的程序，第一部分是对外部数据的请求，第二部分是对返回数据的处理，那么，在第一部分被执行时，它其实是不需要JS引擎处理的，所以它就会把JS引擎的执行权交给正在排队等待执行的程序，这就是我们所说的异步执行模式，那第二部分怎么办呢，这就是Promise要做的工作了，当第一部分等待外部数据返回时，Promise承诺会在外部数据返回成功后，执行第二部分的程序（不一定是立即）。Promise就是JS的异步操作。</p>
 <h2 id="Promise接口"><a href="#Promise接口" class="headerlink" title="Promise接口"></a>Promise接口</h2><p>Promise对象只有三种状态。</p>
 <p>异步操作“未完成”（pending）<br>异步操作“已完成”（resolved，又称fulfilled）<br>异步操作“失败”（rejected）</p>
 <p>Promise使用then方法添加回调函数。then方法可以接受两个回调函数，第一个是异步操作成功时（变为resolved状态）时的回调函数，第二个是异步操作失败（变为rejected）时的回调函数（可以省略）。一旦状态改变，就调用相应的回调函数。<br>then方法可以链式使用。Promises对象的错误有传递性。<br>    promise<br>        .then(step1)<br>        .then(step2)<br>        .then(step3)<br>        .then(<br>            console.log,<br>            console.error<br>        );</p>
@@ -233,7 +269,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3keyoq40006u0m72r0ozohu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3n6joje00048wm7wwvl9zl9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -265,7 +301,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动执行函数"><a href="#自动执行函数" class="headerlink" title="自动执行函数"></a>自动执行函数</h1><p>自动执行函数顾名思义就是当JS引擎执行到该函数时自动执行，不需要引用。</p>
+        <p>自动执行函数顾名思义就是当JS引擎执行到该函数时自动执行，不需要引用。</p>
 <h3 id="声明函数自执行"><a href="#声明函数自执行" class="headerlink" title="声明函数自执行"></a>声明函数自执行</h3><pre><code>(function (){
     alert(&quot;a&quot;)
 })();
@@ -278,7 +314,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3keyopc0003u0m7l3p8p8yq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3n6jojh00078wm7abl0f1nr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -310,7 +346,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="学习Flexbox"><a href="#学习Flexbox" class="headerlink" title="学习Flexbox"></a>学习Flexbox</h1><p>Flex容器（Flex Container）：父元素显式设置了display:flex<br>Flex项目（Flex Items）：Flex容器内的子元素<br>一旦显式的设置了display属性的值为flex，父元素就会自动变成Flex容器，而其子元素就变成了Flex项目。</p>
+        <p>Flex容器（Flex Container）：父元素显式设置了display:flex<br>Flex项目（Flex Items）：Flex容器内的子元素<br>一旦显式的设置了display属性的值为flex，父元素就会自动变成Flex容器，而其子元素就变成了Flex项目。</p>
 <p>Flex 的核心的概念就是 容器 和 轴。容器包括外层的父容器和内层的子容器，轴包括主轴 和交叉轴</p>
 <h2 id="Flex容器属性"><a href="#Flex容器属性" class="headerlink" title="Flex容器属性"></a>Flex容器属性</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p>控制Flex项目沿着主轴（Main Axis）的排列方向<br>flex-direction: row || column || row-reverse || column-reverse;</p>
 <h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>决定子容器是否换行排列，不但可以顺序换行而且支持逆序换行<br>flex-wrap: wrap || nowrap || wrap-reverse;</p>
@@ -325,7 +361,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3keyopb0002u0m7fmw0p5j2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3n6joja00018wm7wh42es71" class="article-share-link">Share</a>
       
       
     </footer>
@@ -357,7 +393,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JavaScript面向对象编程"><a href="#JavaScript面向对象编程" class="headerlink" title="JavaScript面向对象编程"></a>JavaScript面向对象编程</h1><p>这篇文章主要是简单总结JavaScript面向对象编程的一些概念和使用方法，详细请到<a href="http://javascript.ruanyifeng.com/oop/basic.html" target="_blank" rel="external">阮一峰的博客</a>查看。</p>
+        <p>这篇文章主要是简单总结JavaScript面向对象编程的一些概念和使用方法，详细请到<a href="http://javascript.ruanyifeng.com/oop/basic.html" target="_blank" rel="external">阮一峰的博客</a>查看。</p>
 <p>面向对象实际上就是一个容器。一个装着属性(property和方法(method)的容器。</p>
 <p>使用new命令生成一个对象</p>
 <pre><code>var Ob = function(){
@@ -386,7 +422,7 @@ v instanceof Vehicle // true
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3keyopl0004u0m7lckjbbtm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3n6jojc00028wm7f5vk8t1h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -418,7 +454,7 @@ v instanceof Vehicle // true
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><ul>
+        <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><ul>
 <li><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1></li>
 <li><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></li>
 </ul>
@@ -464,7 +500,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3keyopa0001u0m7ifmpv7tc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3n6jojd00038wm76wdjwvs2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -496,7 +532,7 @@ return arr;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简单讲解ES6"><a href="#简单讲解ES6" class="headerlink" title="简单讲解ES6"></a>简单讲解ES6</h1><p>这篇文章主要是想简单说说ES6与之前的ES版本有哪些区别，增加了什么功能和命令</p>
+        <p>这篇文章主要是想简单说说ES6与之前的ES版本有哪些区别，增加了什么功能和命令</p>
 <p>如果想详细理解ES6的话，请到<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a>阮一峰大大的博客；</p>
 <p>好了，现在开始说说ES6新增了哪些命令。</p>
 <h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>let实际上是为JavaScript增加了块级作用域，且let不存在变量提升。</p>
@@ -515,7 +551,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3keyoq30005u0m7r3uoiybv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3n6jojh00068wm7gyjn9qvx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,6 +591,10 @@ return arr;
       <ul>
         
           <li>
+            <a href="/2017/06/07/正则表达式/">正则表达式</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/05/Ajax/">Ajax</a>
           </li>
         
@@ -568,10 +608,6 @@ return arr;
         
           <li>
             <a href="/2017/05/13/Flexbox/">Flexbox</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/12/JavaScript面向对象编程/">JavaScript面向对象编程</a>
           </li>
         
       </ul>

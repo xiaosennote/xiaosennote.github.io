@@ -5,17 +5,17 @@
   
   <title>Promise | 小森笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Promise由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，">
+  <meta name="description" content="由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promi">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Promise">
 <meta property="og:url" content="http://yoursite.com/2017/06/05/Promise/index.html">
 <meta property="og:site_name" content="小森笔记">
-<meta property="og:description" content="Promise由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，">
-<meta property="og:updated_time" content="2017-06-04T17:48:08.805Z">
+<meta property="og:description" content="由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promi">
+<meta property="og:updated_time" content="2017-06-07T14:48:56.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
-<meta name="twitter:description" content="Promise由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，">
+<meta name="twitter:description" content="由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promi">
   
     <link rel="alternate" href="/atom.xml" title="小森笔记" type="application/atom+xml">
   
@@ -86,7 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。<br>Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promise对象，会让程序进入异步执行模式。假如，有一段对外部数据请求的程序，第一部分是对外部数据的请求，第二部分是对返回数据的处理，那么，在第一部分被执行时，它其实是不需要JS引擎处理的，所以它就会把JS引擎的执行权交给正在排队等待执行的程序，这就是我们所说的异步执行模式，那第二部分怎么办呢，这就是Promise要做的工作了，当第一部分等待外部数据返回时，Promise承诺会在外部数据返回成功后，执行第二部分的程序（不一定是立即）。Promise就是JS的异步操作。</p>
+        <p>由于JavaScript（下面简称“JS”）的执行环境是“单线程”的，所以每个时间段只能有一个任务执行，假如一个任务耗时很长，就会造成在后面排队等待执行的任务不能进入JS执行环境中执行，这就会造成我们所说的浏览器“卡死”。那么怎么防止这种情况发生呢？这就需要我们今天要说的Promise出场了。<br>Promise在英语中的意思是“承诺、答应”的意思，而它在JS中的意思也正是如此。在JS中，使用Promise对象，会让程序进入异步执行模式。假如，有一段对外部数据请求的程序，第一部分是对外部数据的请求，第二部分是对返回数据的处理，那么，在第一部分被执行时，它其实是不需要JS引擎处理的，所以它就会把JS引擎的执行权交给正在排队等待执行的程序，这就是我们所说的异步执行模式，那第二部分怎么办呢，这就是Promise要做的工作了，当第一部分等待外部数据返回时，Promise承诺会在外部数据返回成功后，执行第二部分的程序（不一定是立即）。Promise就是JS的异步操作。</p>
 <h2 id="Promise接口"><a href="#Promise接口" class="headerlink" title="Promise接口"></a>Promise接口</h2><p>Promise对象只有三种状态。</p>
 <p>异步操作“未完成”（pending）<br>异步操作“已完成”（resolved，又称fulfilled）<br>异步操作“失败”（rejected）</p>
 <p>Promise使用then方法添加回调函数。then方法可以接受两个回调函数，第一个是异步操作成功时（变为resolved状态）时的回调函数，第二个是异步操作失败（变为rejected）时的回调函数（可以省略）。一旦状态改变，就调用相应的回调函数。<br>then方法可以链式使用。Promises对象的错误有传递性。<br>    promise<br>        .then(step1)<br>        .then(step2)<br>        .then(step3)<br>        .then(<br>            console.log,<br>            console.error<br>        );</p>
@@ -123,7 +123,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3keyoq40006u0m72r0ozohu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3n6joje00048wm7wwvl9zl9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,6 +181,10 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       <ul>
         
           <li>
+            <a href="/2017/06/07/正则表达式/">正则表达式</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/05/Ajax/">Ajax</a>
           </li>
         
@@ -194,10 +198,6 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
         
           <li>
             <a href="/2017/05/13/Flexbox/">Flexbox</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/12/JavaScript面向对象编程/">JavaScript面向对象编程</a>
           </li>
         
       </ul>
