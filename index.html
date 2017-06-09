@@ -83,11 +83,86 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="正则表达式有两种实现方式："><a href="#正则表达式有两种实现方式：" class="headerlink" title="正则表达式有两种实现方式："></a>正则表达式有两种实现方式：</h2><ol>
+<li>var e = /xxx/;</li>
+<li>var e = new RegExp(‘xxx’);</li>
+</ol>
+<h2 id="正则对象属性与方法"><a href="#正则对象属性与方法" class="headerlink" title="正则对象属性与方法"></a>正则对象属性与方法</h2><p>正则对象的方法：将字符串作为参数，比如regex.test(string)。  </p>
+<p>lastIndex：返回下一次开始搜索的位置。该属性可读写，但是只在设置了g修饰符时有意义。<br>source：返回正则表达式的字符串形式（不包括反斜杠），只读。</p>
+<h3 id="test"><a href="#test" class="headerlink" title="test()"></a>test()</h3><p>返回布尔值，表示是否匹配参数字符串。<br>    /cat/.test(‘cats and dogs’) // true</p>
+<h3 id="exec"><a href="#exec" class="headerlink" title="exec()"></a>exec()</h3><p>返回匹配结果，如果匹配，就返回一个数组，成员为每一个匹配成功的子字符串，否则返回null。</p>
+<h2 id="字符串对象的方法"><a href="#字符串对象的方法" class="headerlink" title="字符串对象的方法"></a>字符串对象的方法</h2><p>字符串对象的方法：将正则对象作为参数，比如string.match(regex)。</p>
+<h3 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h3><p>返回一个数组，成员是所有匹配的子字符串。<br>与正则对象方法exec()唯一区别是，带正则带有g修饰符时，会一次性返回所有匹配成果的结果。  </p>
+<p>“字符串”.macth(/正则式/)；</p>
+<h2 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h2><p>返回第一个成功匹配结果在整个字符串中的位置，匹配失败则返回-1。</p>
+<h2 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h2><p>替换字符串中匹配的值。<br>string.replace(/xxx/,’替换值’);</p>
+<h2 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h2><p>按照正则规则分割字符串，返回分割后各个部分组成的数组。</p>
+<p>str.split(separator, [limit])<br>第一个参数是分隔规则，第二个参数是返回数组的最大成员数。</p>
+<h2 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h2><h3 id="字面量字符"><a href="#字面量字符" class="headerlink" title="字面量字符"></a>字面量字符</h3><p>/a/匹配a</p>
+<ul>
+<li><p>点字符(.)<br>匹配除回车（\r）、换行(\n) 、行分隔符（\u2028）和段分隔符（\u2029）以外的所有字符。</p>
+</li>
+<li><p>位置字符<br>用来提示字符所处的位置</p>
+<ul>
+<li>^  表示字符串的开始位置</li>
+<li>$  表示字符串的结束位置</li>
+</ul>
+</li>
+<li><p>选择符(|)<br>多个选择符可以联合使用。<br>表示“或关系”（OR），即cat|dog表示匹配cat或dog。</p>
+</li>
+</ul>
+<h3 id="转义符"><a href="#转义符" class="headerlink" title="转义符()"></a>转义符()</h3><p>  有特殊含义的字符，如果要匹配它们本身，就需要在它们前面要加上反斜杠。<br>  需要用斜杠转义的，一共有12个字符：^、.、[、$、(、)、|、*、+、?、{和\。  </p>
+<p>  如果使用RegExp方法生成正则对象，转义需要使用两个斜杠，因为字符串内部会先转义一次。</p>
+<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p>  对一些不能打印的特殊字符，提供了表达方法。</p>
+<ul>
+<li>\cX 表示Ctrl-[X]，其中的X是A-Z之中任一个英文字母，用来匹配控制字符。</li>
+<li>[\b] 匹配退格键(U+0008)，不要与\b混淆。</li>
+<li>\n 匹配换行键。</li>
+<li>\r 匹配回车键。</li>
+<li>\t 匹配制表符tab（U+0009）。</li>
+<li>\v 匹配垂直制表符（U+000B）。</li>
+<li>\f 匹配换页符（U+000C）。</li>
+<li>\0 匹配null字符（U+0000）。</li>
+<li>\xhh 匹配一个以两位十六进制数（\x00-\xFF）表示的字符。</li>
+<li>\uhhhh 匹配一个以四位十六进制数（\u0000-\uFFFF）表示的unicode字符。</li>
+</ul>
+<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>字符类（class）表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如[xyz] 表示x、y、z之中任选一个匹配。</p>
+<p>有两个字符在字符类中有特殊含义。</p>
+<ul>
+<li>脱字符(^)<br>方括号内的第一个字符是[^]，则表示除了字符类之中的字符，其他字符都可以匹配。</li>
+<li>连字符(-)<br>连续序列的字符，连字符（-）用来提供简写形式，表示字符的连续范围。<br>[abc]可以写成[a-c]，[0123456789]可以写成[0-9],[A-Z]表示26个大写字母。</li>
+</ul>
+<h3 id="预定义模式"><a href="#预定义模式" class="headerlink" title="预定义模式"></a>预定义模式</h3><ul>
+<li>\d 匹配0-9之间的任一数字，相当于[0-9]。</li>
+<li>\D 匹配所有0-9以外的字符，相当于[^0-9]。</li>
+<li>\w 匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]。</li>
+<li>\W 除所有字母、数字和下划线以外的字符，相当于[^A-Za-z0-9_]。</li>
+<li>\s 匹配空格（包括制表符、空格符、断行符等），相等于[\t\r\n\v\f]。</li>
+<li>\S 匹配非空格的字符，相当于[^\t\r\n\v\f]。</li>
+<li>\b 匹配词的边界。</li>
+<li>\B 匹配非词边界，即在词的内部。</li>
+</ul>
+<h3 id="重复类"><a href="#重复类" class="headerlink" title="重复类"></a>重复类</h3><p>  精确匹配次数，使用大括号（{}）表示。{n}表示恰好重复n次，{n,}表示至少重复n次，{n,m}表示重复不少于n次，不多于m次。</p>
+<h3 id="量词符"><a href="#量词符" class="headerlink" title="量词符"></a>量词符</h3><ul>
+<li>? 问号表示某个模式出现0次或1次，等同于{0, 1}。</li>
+<li>* 星号表示某个模式出现0次或多次，等同于{0,}。</li>
+<li>+ 加号表示某个模式出现1次或多次，等同于{1,}。</li>
+</ul>
+<h3 id="贪婪模式"><a href="#贪婪模式" class="headerlink" title="贪婪模式"></a>贪婪模式</h3><p>默认情况下都是最大可能匹配，即匹配直到下一个字符不满足匹配规则为止。这被称为贪婪模式。<br>如果想将贪婪模式改为非贪婪模式，可以在量词符后面加一个问号。  </p>
+<ul>
+<li>*?：表示某个模式出现0次或多次，匹配时采用非贪婪模式。</li>
+<li>+?：表示某个模式出现1次或多次，匹配时采用非贪婪模式。</li>
+</ul>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><ul>
+<li>g修饰符<br>默认情况下，第一次匹配成功后，正则对象就停止向下匹配了。g修饰符表示全局匹配（global），加上它以后，正则对象将匹配全部符合条件的结果，主要用于搜索和替换。</li>
+<li>i修饰符<br>默认情况下，正则对象区分字母的大小写，加上i修饰符以后表示忽略大小写（ignorecase）。</li>
+<li>m修饰符<br>m修饰符表示多行模式（multiline），会修改^和$的行为。默认情况下（即不加m修饰符时），^和$匹配字符串的开始处和结尾处，加上m修饰符以后，^和$还会匹配行首和行尾，即^和$会识别换行符（\n）。</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/正则表达式/" data-id="cj3n6jojf00058wm7xwq1nswr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/正则表达式/" data-id="cj3pgoih6000568m7jdul5ddb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +275,7 @@ ajax.send();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Ajax/" data-id="cj3n6joj600008wm7sreatf2u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Ajax/" data-id="cj3pgoigq000368m753ssu744" class="article-share-link">Share</a>
       
       
     </footer>
@@ -269,7 +344,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3n6joje00048wm7wwvl9zl9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/Promise/" data-id="cj3pgoigb000168m77x0288jx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,7 +389,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3n6jojh00078wm7abl0f1nr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/04/自动执行函数/" data-id="cj3pgoigq000468m768l9zh3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -361,7 +436,7 @@ search(&quot;Hello World&quot;).then(console.log, console.error);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3n6joja00018wm7wh42es71" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/Flexbox/" data-id="cj3pgoih6000668m7cavnzl5e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -422,7 +497,7 @@ v instanceof Vehicle // true
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3n6jojc00028wm7f5vk8t1h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/12/JavaScript面向对象编程/" data-id="cj3pgoigb000068m79vbqh4qr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -500,7 +575,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3n6jojd00038wm76wdjwvs2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/07/Markdown语法/" data-id="cj3pgoigq000268m7mogspdf1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +626,7 @@ return arr;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3n6jojh00068wm7gyjn9qvx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/04/简单讲解ES6/" data-id="cj3pgoih6000768m7q9syd9vs" class="article-share-link">Share</a>
       
       
     </footer>
