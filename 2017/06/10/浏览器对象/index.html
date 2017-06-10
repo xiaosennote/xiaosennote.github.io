@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浏览器对象 | 小森笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="浏览器距离，大小屏幕分辨率screen.width,screen.height 窗口位置screenX,screenY分别表示浏览器窗口相对屏幕左边和上边的距离。 网页可见部分（视口）innerHeight,innerWidht 浏览器窗口outerHeight,outerWidth 页面滚动距离pageXOffset,pageYOffset 混动到页面指定距离scrollTo(x,y) 绝对坐标">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器对象">
+<meta property="og:url" content="http://yoursite.com/2017/06/10/浏览器对象/index.html">
+<meta property="og:site_name" content="小森笔记">
+<meta property="og:description" content="浏览器距离，大小屏幕分辨率screen.width,screen.height 窗口位置screenX,screenY分别表示浏览器窗口相对屏幕左边和上边的距离。 网页可见部分（视口）innerHeight,innerWidht 浏览器窗口outerHeight,outerWidth 页面滚动距离pageXOffset,pageYOffset 混动到页面指定距离scrollTo(x,y) 绝对坐标">
+<meta property="og:updated_time" content="2017-06-10T09:11:10.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器对象">
+<meta name="twitter:description" content="浏览器距离，大小屏幕分辨率screen.width,screen.height 窗口位置screenX,screenY分别表示浏览器窗口相对屏幕左边和上边的距离。 网页可见部分（视口）innerHeight,innerWidht 浏览器窗口outerHeight,outerWidth 页面滚动距离pageXOffset,pageYOffset 混动到页面指定距离scrollTo(x,y) 绝对坐标">
+  
+    <link rel="alternate" href="/atom.xml" title="小森笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小森笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-浏览器对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/10/浏览器对象/" class="article-date">
+  <time datetime="2017-06-10T07:38:28.000Z" itemprop="datePublished">2017-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浏览器对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="浏览器距离，大小"><a href="#浏览器距离，大小" class="headerlink" title="浏览器距离，大小"></a>浏览器距离，大小</h2><h3 id="屏幕分辨率"><a href="#屏幕分辨率" class="headerlink" title="屏幕分辨率"></a>屏幕分辨率</h3><p>screen.width,screen.height</p>
+<h3 id="窗口位置"><a href="#窗口位置" class="headerlink" title="窗口位置"></a>窗口位置</h3><p>screenX,screenY<br>分别表示浏览器窗口相对屏幕左边和上边的距离。</p>
+<h3 id="网页可见部分（视口）"><a href="#网页可见部分（视口）" class="headerlink" title="网页可见部分（视口）"></a>网页可见部分（视口）</h3><p>innerHeight,innerWidht</p>
+<h3 id="浏览器窗口"><a href="#浏览器窗口" class="headerlink" title="浏览器窗口"></a>浏览器窗口</h3><p>outerHeight,outerWidth</p>
+<h3 id="页面滚动距离"><a href="#页面滚动距离" class="headerlink" title="页面滚动距离"></a>页面滚动距离</h3><p>pageXOffset,pageYOffset</p>
+<h3 id="混动到页面指定距离"><a href="#混动到页面指定距离" class="headerlink" title="混动到页面指定距离"></a>混动到页面指定距离</h3><p>scrollTo(x,y) 绝对坐标<br>scrollBy(x,y) 相对当前距离坐标</p>
+<h2 id="浏览器信息-navigator"><a href="#浏览器信息-navigator" class="headerlink" title="浏览器信息(navigator)"></a>浏览器信息(navigator)</h2><h3 id="navigator-userAgent"><a href="#navigator-userAgent" class="headerlink" title="navigator.userAgent"></a>navigator.userAgent</h3><p>返回浏览器厂商和版本信息</p>
+<h3 id="navigator-plugins"><a href="#navigator-plugins" class="headerlink" title="navigator.plugins"></a>navigator.plugins</h3><p>返回浏览器中安装的插件信息</p>
+<h3 id="navigator-platform"><a href="#navigator-platform" class="headerlink" title="navigator.platform"></a>navigator.platform</h3><p>返回用户的操作系统信息</p>
+<h3 id="navigator-onLine"><a href="#navigator-onLine" class="headerlink" title="navigator.onLine"></a>navigator.onLine</h3><p>返回布尔值，表示用户目前在线还是离线</p>
+<h3 id="navigator-geolocation"><a href="#navigator-geolocation" class="headerlink" title="navigator.geolocation"></a>navigator.geolocation</h3><p>用户地理位置的信息</p>
+<h2 id="浏览器事件"><a href="#浏览器事件" class="headerlink" title="浏览器事件"></a>浏览器事件</h2><h3 id="onload"><a href="#onload" class="headerlink" title="onload"></a>onload</h3><p>发生在文档在浏览器窗口加载完毕时</p>
+<h3 id="onerror"><a href="#onerror" class="headerlink" title="onerror"></a>onerror</h3><p>浏览器脚本发生错误时，触发error事件</p>
+<h2 id="浏览器对话框"><a href="#浏览器对话框" class="headerlink" title="浏览器对话框"></a>浏览器对话框</h2><h3 id="alert"><a href="#alert" class="headerlink" title="alert()"></a>alert()</h3><p>只有一个确定按钮<br>通知用户注意信息</p>
+<h3 id="prompt"><a href="#prompt" class="headerlink" title="prompt()"></a>prompt()</h3><p>有两个按钮，分别是确定和取消<br>提示文字的下方，还有一个输入框，通知用户输入信息</p>
+<h3 id="confirm"><a href="#confirm" class="headerlink" title="confirm()"></a>confirm()</h3><p>提示信息，只有“确定”和“取消”两个按钮<br>征求用户同意与否</p>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p>浏览历史</p>
+<p>history.back()：移动到上一个访问页面，等同于浏览器的后退键。<br>history.forward()：移动到下一个访问页面，等同于浏览器的前进键。<br>history.go()：接受一个整数作为参数，移动到该整数指定的页面，比如go(1)相当于forward()，go(-1)相当于back()。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/10/浏览器对象/" data-id="cj3r2eiw000037sm7x09a6urb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/07/正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          正则表达式
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/10/浏览器对象/">浏览器对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/07/正则表达式/">正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/Ajax/">Ajax</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/04/自动执行函数/">自动执行函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 xiaosen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
